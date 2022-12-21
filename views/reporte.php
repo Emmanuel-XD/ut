@@ -41,13 +41,23 @@ $varsesion = $_SESSION['nombre'];
 
                    <thead>    
                    <tr >
-                   <th>N.Control</th>
-                   <th>Nombre</th>
-                   <th>Fecha</th>
+                   <th>Folio</th>
+                   <th>Fecha Solicitud</th>
+                   <th>Fecha Uso</th>
+                   <th>Hora</th>
+                   <th>Asignatura</th>
+                   <th>Profesor</th>
+                   <th>Grupo</th>
+                   <th>Nombre Practica</th>
                    <th>Cantidad</th>
-                   <th>Solicitud</th>
-                   <th>Registro</th>
-                   <th>Acciones</th>
+                   <th>Material</th>
+                   <th>Entregado</th>
+                   <th>Pendiente</th>
+                   <th>Observacion</th>
+                   <th>N°Control</th>
+                   <th>Alumnos</th>
+                  
+                   <th>Acciones..</th>
                      </tr>
                 </thead>
             <tbody>
@@ -59,12 +69,22 @@ while ($fila = mysqli_fetch_assoc($result)):
     
 ?>
 <tr>
-<td><?php echo $fila['control']; ?></td>
-<td><?php echo $fila['nombre']; ?></td>
-<td><?php echo $fila['fecha']; ?></td>
+<td><?php echo $fila['folio']; ?></td>
+<td><?php echo $fila['solicitud']; ?></td>
+<td><?php echo $fila['uso']; ?></td>
+<td><?php echo $fila['hora']; ?></td>
+<td><?php echo $fila['asignatura']; ?></td>
+<td><?php echo $fila['profesor']; ?></td>
+<td><?php echo $fila['grupo']; ?></td>
+<td><?php echo $fila['practica']; ?></td>
 <td><?php echo $fila['cantidad']; ?></td>
-<td><?php echo $fila['equipos']; ?></td>
-<td><?php echo $fila['registro']; ?></td>
+<td><?php echo $fila['material']; ?></td>
+<td><?php echo $fila['entregado']; ?></td>
+<td><?php echo $fila['pendiente']; ?></td>
+<td><?php echo $fila['observacion']; ?></td>
+<td><?php echo $fila['control']; ?></td>
+<td><?php echo $fila['alumno']; ?></td>
+
 
 <td>
 <a class="btn btn-warning" href="../includes/editar_reporte.php?id=<?php echo $fila['id']?> ">
