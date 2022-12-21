@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2022 a las 01:55:18
+-- Tiempo de generación: 21-12-2022 a las 23:37:30
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.8
 
@@ -154,20 +154,29 @@ INSERT INTO `reactivo` (`id`, `nombre`, `elaboracion`, `caducidad`, `cantidad`, 
 
 CREATE TABLE `reporte` (
   `id` int(11) NOT NULL,
-  `control` varchar(50) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `fecha` date NOT NULL,
-  `cantidad` int(50) NOT NULL,
-  `equipos` varchar(100) NOT NULL,
-  `registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `folio` varchar(50) NOT NULL,
+  `solicitud` date NOT NULL,
+  `uso` date NOT NULL,
+  `hora` time NOT NULL,
+  `asignatura` varchar(100) NOT NULL,
+  `profesor` varchar(150) NOT NULL,
+  `grupo` varchar(250) NOT NULL,
+  `practica` varchar(150) NOT NULL,
+  `cantidad` varchar(100) NOT NULL,
+  `material` varchar(150) NOT NULL,
+  `entregado` varchar(150) NOT NULL,
+  `pendiente` varchar(150) NOT NULL,
+  `observacion` varchar(250) NOT NULL,
+  `control` varchar(250) NOT NULL,
+  `alumno` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `reporte`
 --
 
-INSERT INTO `reporte` (`id`, `control`, `nombre`, `fecha`, `cantidad`, `equipos`, `registro`) VALUES
-(2, '10', 'Emanuels', '2022-11-18', 200, 'Material', '2022-11-11 17:09:10');
+INSERT INTO `reporte` (`id`, `folio`, `solicitud`, `uso`, `hora`, `asignatura`, `profesor`, `grupo`, `practica`, `cantidad`, `material`, `entregado`, `pendiente`, `observacion`, `control`, `alumno`) VALUES
+(3, '010101', '2022-12-08', '2022-12-11', '17:00:00', 'Quimica1', 'Ejemplo1', 'Salon-1', 'Practicas', '10/10/5/6', 'E/E/E/Y', 'No', 'Ninguno', 'Ejmplo', '0101', 'X/X/X/X/L');
 
 -- --------------------------------------------------------
 
@@ -307,7 +316,7 @@ ALTER TABLE `reactivo`
 -- AUTO_INCREMENT de la tabla `reporte`
 --
 ALTER TABLE `reporte`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tabla`
