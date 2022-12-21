@@ -1,18 +1,18 @@
-<?php 
+<?php
 
 session_start();
 error_reporting(0);
 $varsesion = $_SESSION['nombre'];
 
-	if($varsesion== null || $varsesion= ''){
+if ($varsesion == null || $varsesion = '') {
 
-	header("Location:./sesion/login.php");
-		die();
-	}
+    header("Location:./sesion/login.php");
+    die();
+}
 ////////////////// CONEXION A LA BASE DE DATOS ////////////////////////////////////
 $id = $_GET['id'];
 include_once "header.php";
-require_once ("db.php");
+require_once("db.php");
 $consulta = "SELECT * FROM reporte WHERE id = $id";
 $resultado = mysqli_query($conexion, $consulta);
 $usuario = mysqli_fetch_assoc($resultado);
@@ -23,6 +23,7 @@ $usuario = mysqli_fetch_assoc($resultado);
 
 <!DOCTYPE html>
 <html lang="es-MX">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,67 +32,152 @@ $usuario = mysqli_fetch_assoc($resultado);
 
     <link rel="stylesheet" href="../../css/fontawesome-all.min.css">
 
-	<link rel="stylesheet" href="../../css/estilo.css">
+    <link rel="stylesheet" href="../../css/estilo.css">
 </head>
 
 <body>
 
+    <form action="../includes/functions.php" method="POST">
+
+        <h3>Editar Registro</h3>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Folio *</label>
+                    <input type="text" id="folio" name="folio" class="form-control" value="<?php echo $usuario ['folio']; ?>">
+
+                </div>
+            </div>
 
 
-    <form  action="functions.php" method="POST">
-
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                     
-                            <h3 class="text-center">Editar el registro de <?php echo $usuario ['nombre']; ?></h3>
-                           
-                            <div class="form-group">
-                            <label for="nombre" class="form-label">N.Control *</label>
-                            <input type="text"  id="control" name="control" class="form-control" value="<?php echo $usuario ['control']; ?>">
-                            </div>
-
-                            <div class="form-group">
-                            <label for="nombre" class="form-label">Nombre *</label>
-                            <input type="text"  id="nombre" name="nombre" class="form-control" value="<?php echo $usuario ['nombre']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="username">Fecha:</label><br>
-                                <input type="date" name="fecha" id="fecha" class="form-control" value="<?php echo $usuario ['fecha']; ?>">
-                            </div>
-   
-                            <div class="form-group">
-                                <label for="password">Cantidad:</label><br>
-                                <input type="number" name="cantidad" id="cantidad" class="form-control" value="<?php echo $usuario ['cantidad']; ?>">
-                            </div>
-                            <div class="form-group">
-                                  <label for="rol_id" class="form-label">Solicitud:</label>
-                                  <select name="equipos" id="equipos" class="form-control" required >
-                                  <option <?php echo $usuario ['equipos']==='Equipo' ? "selected='selected' ": "" ?> value="Equipo">Equipo</option>
-                                  <option <?php echo $usuario ['equipos']==='Reactivo' ? "selected='selected' ": "" ?> value="Reactivo">Reactivo</option>
-                                  <option <?php echo $usuario ['equipos']==='Material' ? "selected='selected' ": "" ?> value="Material">Material</option>
-                                 <input type="hidden" name="accion" value="editar_reporte">
-                                <input type="hidden" name="id" value="<?php echo $id;?>">
-                               </select>
-                            </div>
-                           
-                               <br>
-                                <div class="mb-3">
-                                    
-                                <button type="submit" class="btn btn-success" >Editar</button>
-                               <a href="../views/reporte.php" class="btn btn-danger">Cancelar</a>
-                               
-                            </div>
-                            </div>
-                            </div>
-
-                        </form>
-                    </div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Fecha Solicitud</label>
+                    <input type="date" id="solicitud" name="solicitud" class="form-control" value="<?php echo $usuario ['solicitud']; ?>">
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Fecha Uso</label>
+                    <input type="date" id="uso" name="uso" class="form-control" value="<?php echo $usuario ['uso']; ?>">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Hora *</label>
+                    <input type="time" id="hora" name="hora" class="form-control" value="<?php echo $usuario ['hora']; ?>">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Asignatura</label>
+                    <input type="text" id="asignatura" name="asignatura" class="form-control" value="<?php echo $usuario ['asignatura']; ?>" >
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Profesor</label>
+                    <input type="text" id="profesor" name="profesor" class="form-control" value="<?php echo $usuario ['profesor']; ?>">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="rol_id" class="form-label">Grupo</label>
+                    <input type="text" id="grupo" name="grupo" class="form-control" value="<?php echo $usuario ['grupo']; ?>">
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Nombre Practica</label>
+                    <input type="text" id="practica" name="practica" class="form-control" value="<?php echo $usuario ['practica']; ?>">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="rol_id" class="form-label">Cantidad</label>
+                    <input type="text" id="cantidad" name="cantidad" class="form-control" value="<?php echo $usuario ['cantidad']; ?>">
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Material</label>
+                    <input type="text" id="material" name="material" class="form-control" value="<?php echo $usuario ['material']; ?>">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="rol_id" class="form-label">Entregado</label>
+                    <input type="text" id="entregado" name="entregado" class="form-control" value="<?php echo $usuario ['entregado']; ?>">
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">Pendiente</label>
+                    <input type="text" id="pendiente" name="pendiente" class="form-control" value="<?php echo $usuario ['pendiente']; ?>">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="rol_id" class="form-label">Observacion</label>
+                    <input type="text" id="observacion" name="observacion" class="form-control" value="<?php echo $usuario ['observacion']; ?>">
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <label for="descripcion" class="form-label">N° Control</label>
+                    <input type="text" id="control" name="control" class="form-control"value="<?php echo $usuario ['control']; ?>">
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="nombre" class="form-label">Alumnos</label>
+            <input type="text" id="alumno" name="alumno" class="form-control" required value="<?php echo $usuario ['alumno']; ?>">
+            <input type="hidden" name="accion" value="editar_reporte">
+            <input type="hidden" name="id" value="<?php echo $id; ?>">
+        </div>
+
+        <br>
+
+        <div class="mb-3">
+
+            <input type="submit" value="Guardar" id="register" class="btn btn-success">
+            <a href="../views/reporte.php" class="btn btn-danger">Cancelar</a>
+
+        </div>
+
     </form>
-</body>
+
+
 </html>
