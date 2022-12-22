@@ -76,17 +76,16 @@ function acceso_user()
     $consulta = "SELECT*FROM user where nombre='$nombre' and password='$password'";
     $resultado = mysqli_query($conexion, $consulta);
     $filas = mysqli_fetch_array($resultado);
-
-
-    if (isset($filas['rol_id']) == 1) {
-
-        header('Location: ../views/usuarios.php');
-
-
+        if (isset($filas['rol_id']) == 1) {
+        $_SESSION['rol'] = "Administrador";
+        header('Location: ../views/welcome.php');
         if ($filas['rol_id'] == 2) { //empleado
-
-
-            header('Location: ../alumnos/views/reporte.php');
+            $_SESSION['rol'] = "Alumno";
+            header('Location: ../alumnos/views/welcome.php');
+        }
+        if ($filas['rol_id'] == 3) { //empleado
+            $_SESSION['rol'] = "Docente";
+            header('Location: ../alumnos/views/welcome.php');
         }
     } else {
 

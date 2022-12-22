@@ -2,6 +2,68 @@ body{
 	padding-top: 70px;
 	
 }
-
+html{
+    scroll-behavior: smooth;
+}
+.button{
+    color: aliceblue;
+}
 a { text-decoration: none; 
+
     } 
+.tittle{
+    margin-top: 15% !important;
+    text-align: center;
+    margin-bottom: 40px;
+}
+.user{
+    font-size: 30px;
+    text-align: center;
+}
+.tittle-area{
+    background-color: #212529;
+    border-radius: 0px 0px 15px 15px;
+    color: aliceblue;
+    
+}
+.go{
+    font-size: 100px;
+    cursor: pointer;
+}
+.permission{
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 7.7%;
+}
+.disclaimer{
+    margin-top: 13px !important;
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+}
+.content-main{
+    padding: 0px 0px 10px;
+    color: aliceblue;
+    border-radius: 15px;
+    margin-top: 20px !important;
+    background-color: #3D414B;
+    margin-bottom: 10px;
+}
+.objetivo{
+    margin-top: 50px;
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.period{
+    margin-top: 40px !important;
+    text-align: center;
+    font-weight: bolder;
+}
+.logo{
+    margin-top: 30px;
+    width: 400px;
+    height: 200px;
+}
