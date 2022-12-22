@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 21-12-2022 a las 23:37:30
--- Versión del servidor: 10.4.20-MariaDB
--- Versión de PHP: 8.0.8
+-- Servidor: localhost
+-- Tiempo de generación: 22-12-2022 a las 23:00:12
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoria` varchar(50) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `categorias`
@@ -63,7 +63,7 @@ CREATE TABLE `equipos` (
   `fecha_ins` date NOT NULL,
   `fecha_serv` date NOT NULL,
   `condicion` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `equipos`
@@ -86,7 +86,7 @@ CREATE TABLE `materiales` (
   `marca` varchar(150) NOT NULL,
   `ubicacion` varchar(150) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `materiales`
@@ -105,7 +105,7 @@ INSERT INTO `materiales` (`id`, `nombre`, `tamaño`, `cantidad`, `marca`, `ubica
 CREATE TABLE `permisos` (
   `id` int(11) NOT NULL,
   `rol` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `permisos`
@@ -113,7 +113,8 @@ CREATE TABLE `permisos` (
 
 INSERT INTO `permisos` (`id`, `rol`) VALUES
 (1, 'Administrador'),
-(2, 'Alumno');
+(2, 'Alumno'),
+(3, 'Docente');
 
 -- --------------------------------------------------------
 
@@ -130,7 +131,7 @@ CREATE TABLE `reactivo` (
   `porcentaje` int(11) NOT NULL,
   `ubicacion` varchar(250) NOT NULL,
   `marca` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reactivo`
@@ -169,7 +170,7 @@ CREATE TABLE `reporte` (
   `observacion` varchar(250) NOT NULL,
   `control` varchar(250) NOT NULL,
   `alumno` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `reporte`
@@ -189,7 +190,7 @@ CREATE TABLE `tabla` (
   `nombre` varchar(250) NOT NULL,
   `correo` varchar(250) NOT NULL,
   `categoria` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tabla`
@@ -214,7 +215,7 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `rol_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `user`
@@ -304,7 +305,7 @@ ALTER TABLE `materiales`
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `reactivo`
