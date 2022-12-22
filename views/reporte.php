@@ -23,17 +23,26 @@ $varsesion = $_SESSION['nombre'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <?php include_once "../includes/header.php" ?>
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
+
+
+
+    </head>
 
 
 <div class="row">
     <div class="col-sm">
     <h1>Lista de reportes</h1>
     <br>
-    <div>
-    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#reporte">
-				<span class="glyphicon glyphicon-plus"></span> Agregar reporte  <i class="fa fa-user-plus"></i> </a></button>
-    
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-2"> 
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#reporte">Agregar reporte <i class="fa fa-user-plus"></i></button>
+    </div>
+    <div class="col-sm-2">
+      <button id="export-btn" type="button" class="btn btn-success">Exportar a excel<i class="fa fa-table"></i></button>
+    </div>
+    </div>
     </div>
     <br>
     
@@ -139,6 +148,8 @@ Swal.fire({
 				
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+<script src="../js/export.js"></script>
 <?php include_once("../includes/footer.php"); ?>
 <?php include("form_reporte.php"); ?>
 </html>
