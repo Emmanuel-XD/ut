@@ -34,7 +34,7 @@ $varsesion = $_SESSION['nombre'];
                 </div>
                 <div class="modal-body">
 
-                            <form  action="../includes/functions.php" method="POST">
+                        <form  action="../includes/functions.php" method="POST">
                             <div class="form-group">
                             <label for="nombre" class="form-label">Nombre *</label>
                             <input type="text"  id="nombre" name="nombre" class="form-control" required>
@@ -54,10 +54,11 @@ $varsesion = $_SESSION['nombre'];
                                   <option value="">--Selecciona una opcion--</option>
                                   <option value="1">Administrador</option>
                                   <option value="2">Alumno</option>
+                                  <option value="3">Docente</option>
                                </select>
                             </div>
-                      <br>
-                      <input type="hidden" name="accion" value="insertar_user">
+                            <br>
+                            <input type="hidden" name="accion" value="insertar_user">
                                 <div class="mb-3">
                                     
                                <input type="submit" value="Guardar" id="register" class="btn btn-success">

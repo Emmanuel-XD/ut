@@ -183,7 +183,7 @@ function insertar_user()
     global $conexion;
     extract($_POST);
     include "db.php";
-
+    $password = $_POST['password'];
     $consulta = "INSERT INTO user (nombre, correo, password,  rol_id)
     VALUES ('$nombre', '$correo', '$password',  '$rol_id' );";
     $resultado = mysqli_query($conexion, $consulta);
@@ -191,8 +191,8 @@ function insertar_user()
     if ($resultado) {
         echo "
         <script language='JavaScript'>
-        alert('El registro fue realizado correctamente');
-        location.assign('../views/usuarios.php');
+        alert('El registro fue realizado correctamente ' );
+        location.assign('../views/usuarios.php'); 
         </script>";
     } else {
         echo "<script language='JavaScript'>
